@@ -11,8 +11,8 @@
     </head>
     <body class="-dark-background-color-18" data-theme="system">
         <boot id="boot"></boot>
-        <header>
-            <section>
+        <header class="-dark-background-color-20 position-fixed width-100pct z-index-5">
+            <row class="justify-content-space-between width-100pct">
                 <card>
                     <row>
                         <box>
@@ -32,9 +32,147 @@
                         </box>
                     </row>
                 </card>
-            </section>
+                <card class="margin-left-auto">
+                    <row>
+                        <box>
+                            <section>
+                                <ico>
+                                    <n class="gg-add"></n>
+                                </ico>
+                            </section>
+                        </box>
+                        <box>
+                            <section>
+                                <ico>
+                                    <n class="gg-bell"></n>
+                                </ico>
+                            </section>
+                        </box>
+                        <box>
+                            <section>
+                                <picture class="background-color-000 border-radius-50pct height-30px margin-10px width-30px"></picture>
+                                <ico class="-empty-state">
+                                    <n class="gg-user"></n>
+                                </ico>
+                            </section>
+                        </box>
+                    </row>
+                </card>
+            </row>
         </header>
-        <main>
+        <nav class="-dark-background-color-20 min-height-100pct position-fixed width-240px z-index-3">
+            <column>
+                <card class="border-bottom-1px-solid border-color-ffffff1a padding-top-50px">
+                    <column>
+                        <box>
+                            <row class="align-items-center">
+                                <ico>
+                                    <n class="gg-home"></n>
+                                </ico>
+                                <text>Home</text>
+                            </row>
+                        </box>
+                        <box>
+                            <row class="align-items-center">
+                                <ico>
+                                    <n></n>
+                                </ico>
+                                <text>Trending</text>
+                            </row>
+                        </box>
+                        <box>
+                            <row class="align-items-center">
+                                <ico>
+                                    <n></n>
+                                </ico>
+                                <text>Subscriptions</text>
+                            </row>
+                        </box>
+                    </column>
+                </card>
+                <card class="border-bottom-1px-solid border-color-ffffff1a">
+                    <column>
+                        <box>
+                            <row class="align-items-center">
+                                <ico>
+                                    <n></n>
+                                </ico>
+                                <text>Library</text>
+                            </row>
+                        </box>
+                        <box>
+                            <row class="align-items-center">
+                                <ico>
+                                    <n></n>
+                                </ico>
+                                <text>History</text>
+                            </row>
+                        </box>
+                    </column>
+                </card>
+                <card class="border-bottom-1px-solid border-color-ffffff1a">
+                    <column>
+                        <box>
+                            <row class="align-items-center">
+                                <ico>
+                                    <n></n>
+                                </ico>
+                                <text>Music</text>
+                            </row>
+                        </box>
+                        <box>
+                            <row class="align-items-center">
+                                <ico>
+                                    <n></n>
+                                </ico>
+                                <text>Sports</text>
+                            </row>
+                        </box>
+                        <box>
+                            <row class="align-items-center">
+                                <ico>
+                                    <n></n>
+                                </ico>
+                                <text>Gaming</text>
+                            </row>
+                        </box>
+                        <box>
+                            <row class="align-items-center">
+                                <ico>
+                                    <n></n>
+                                </ico>
+                                <text>Movies</text>
+                            </row>
+                        </box>
+                        <box>
+                            <row class="align-items-center">
+                                <ico>
+                                    <n></n>
+                                </ico>
+                                <text>News</text>
+                            </row>
+                        </box>
+                        <box>
+                            <row class="align-items-center">
+                                <ico>
+                                    <n></n>
+                                </ico>
+                                <text>Fashion</text>
+                            </row>
+                        </box>
+                        <box>
+                            <row class="align-items-center">
+                                <ico>
+                                    <n></n>
+                                </ico>
+                                <text>Learning</text>
+                            </row>
+                        </box>
+                    </column>
+                </card>
+            </column>
+        </nav>
+        <main class="min-height-150pct">
             <page class="width-100pct" data-active="true" data-fetch="/cdn/html/page/page.index.html" data-page="/"></page>
         </main>
     </body>

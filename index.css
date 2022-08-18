@@ -17,6 +17,14 @@
         -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
         background-color: #d62929;
     }
+
+    :not(:empty) + .-empty-state {
+        display: none !important;
+    }
+
+    .-empty:empty, .-empty:empty > * {
+        display: none;
+    }
 }
 
 /*SHELL*/
@@ -27,8 +35,6 @@
     }
 
     body {
-        display: flex;
-        display: webkit-flex;
         font-family: Arial;
         height: 100%;
         margin: 0;
@@ -37,7 +43,7 @@
 
     @media (prefers-color-scheme: dark) {
         body[data-theme="system"] {
-            background-color: #1f1f1f;
+            background-color: #181818;
             color: #fff;
         }
     }
@@ -170,9 +176,117 @@
 
 /*BACKGROUND COLOR*/
 @media screen {
+    .background-color-000 {
+        background-color: #000;
+    }
+
     @media (prefers-color-scheme: dark) {
         body[data-theme="system"] .-dark-background-color-18 {
             background-color: #181818;
         }
+
+        body[data-theme="system"] .-dark-background-color-20 {
+            background-color: #202020;
+        }
+    }
+}
+
+/*BORDER*/
+@media screen {
+    .border-bottom-1px-solid {
+        border-bottom: 1px solid;
+    }
+}
+
+/*BORDER COLOR*/
+@media screen {
+    .border-color-ffffff1a {
+        border-color: #ffffff1a;
+    }
+}
+
+/*BACKGROUND COLOR*/
+@media screen {
+    .background-color-333 {
+        background-color: #333;
+    }
+}
+
+/*BORDER RADIUS*/
+@media screen {
+    .border-radius-50pct {
+        border-radius: 50%;
+    }
+}
+
+/*HEIGHT*/
+@media screen {
+    .height-30px {
+        height: 30px;
+    }
+}
+
+/*JUSTIFY CONTENT*/
+@media screen {
+    .justify-content-space-between {
+        justify-content: space-between;
+    }
+}
+
+/*MIN HEIGhT*/
+@media screen {
+    .min-height-100pct {
+        min-height: 100%;
+    }
+
+    .min-height-150pct {
+        min-height: 150%;
+    }
+}
+
+/*MARGIN*/
+@media screen {
+    .margin-10px {
+        margin: 10px;
+    }
+}
+
+/*PADDING*/
+@media screen {
+    .padding-top-50px {
+        padding-top: 50px;
+    }
+}
+
+/*POSITION*/
+@media screen {
+    .position-fixed {
+        position: fixed;
+    }
+}
+
+/*WIDTH*/
+@media screen {
+    .width-30px {
+        width: 30px;
+    }
+
+    .width-240px {
+        width: 240px;
+    }
+
+    .width-100pct {
+        width: 100%;
+    }
+}
+
+/*Z-INDEX*/
+@media screen {
+    .z-index-3 {
+        z-index: 123;
+    }
+    
+    .z-index-5 {
+        z-index: 12345;
     }
 }
