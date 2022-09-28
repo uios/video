@@ -96,7 +96,7 @@
     }
 
     form > * {
-        width: 100%;
+        /* width: 100%; */
     }
 
     main {
@@ -181,6 +181,10 @@
     }
 
     @media (prefers-color-scheme: dark) {
+        body[data-theme="system"] .-dark-background-color-12 {
+            background-color: #121212;
+        }
+
         body[data-theme="system"] .-dark-background-color-18 {
             background-color: #181818;
         }
@@ -188,11 +192,19 @@
         body[data-theme="system"] .-dark-background-color-20 {
             background-color: #202020;
         }
+        
+        body[data-theme="system"] .-dark-background-color-31 {
+            background-color: #313131;
+        }
     }
 }
 
 /*BORDER*/
 @media screen {
+    .border-1px-solid {
+        border: 1px solid;
+    }
+    
     .border-bottom-1px-solid {
         border-bottom: 1px solid;
     }
@@ -200,6 +212,10 @@
 
 /*BORDER COLOR*/
 @media screen {
+    .border-color-31 {
+        border-color: #313131;    
+    }
+    
     .border-color-ffffff1a {
         border-color: #ffffff1a;
     }
@@ -219,15 +235,49 @@
     }
 }
 
+/*DISPLAY*/
+@media screen {
+    .display-flex {
+        display: flex;
+        display: -webkit-flex;
+    }
+}
+
+/*FLEX*/
+@media screen {
+    .flex-1 {
+        flex: 1;
+    }
+}
+
+/*FLEX DIRECTION*/
+@media screen {
+    .flex-direction-row {
+        flex-direction: row;
+    }
+}
+
 /*HEIGHT*/
 @media screen {
     .height-30px {
         height: 30px;
     }
+
+    .height-40px, [data-height="40px"] {
+        height: 40px;
+    }
+
+    [data-height="100%"] {
+        height: 100%;
+    }
 }
 
 /*JUSTIFY CONTENT*/
 @media screen {
+    .justify-content-center {
+        justify-content: center;
+    }
+
     .justify-content-space-between {
         justify-content: space-between;
     }
@@ -248,6 +298,18 @@
 @media screen {
     .margin-10px {
         margin: 10px;
+    }
+
+    .margin-x-20px {
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+}
+
+/*MAX WIDTH*/
+@media screen {
+    .max-width-100pct {
+        max-width: 100%;
     }
 }
 
@@ -271,8 +333,16 @@
         width: 30px;
     }
 
+    .width-64px {
+        width: 64px;
+    }
+
     .width-240px {
         width: 240px;
+    }
+
+    .width-640px {
+        width: 640px;
     }
 
     .width-100pct {
@@ -285,7 +355,7 @@
     .z-index-3 {
         z-index: 123;
     }
-    
+
     .z-index-5 {
         z-index: 12345;
     }
