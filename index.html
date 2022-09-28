@@ -1,7 +1,29 @@
 <html>
     <head>
         <title>Video &#8226;&#160;uiOS</title>
-        <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0">
+        <meta name='viewport' content='width=device-width,initial-scale=1.0,maximum-scale=1.0'>
+        <meta http-equiv='Content-Type' content='text/html; charset=utf-8'>
+        <meta name='apple-mobile-web-app-capable' content='yes'>
+        <meta name='apple-mobile-web-app-status-bar-style' content='#021025'>
+        <meta name="apple-mobile-web-app-title" content="Write">
+        <meta name="application-name" content="Video">
+        <meta name="application-shortname" content="video">
+        <meta name="msapplication-TileColor" content="#da532c">
+        <meta name='theme-color' content='#fef200'>
+        <script>
+            var domains = window.location.host.split('.');
+            window.globals = {
+                domains: {
+                    domain: domains.length > 1 ? domains[domains.length - 2] : null,
+                    subdomain: domains.length > 2 ? domains[domains.length - 3] : null,
+                    tld: domains[domains.length - 1]
+                }
+            }
+            const base = document.createElement("base");
+            base.href = (globals.domains.domain === "github" ? "/" + document.head.querySelector('[name="application-shortname"]').content : "") + "/";
+            document.head.appendChild(base);
+        </script>
+        <link rel="icon" type="image/x-icon" href="favicon.ico">
         <link href="index.css" rel="stylesheet">
         <link href="cdn/css/gg.css" rel="stylesheet">
         <script src="index.js"></script>
@@ -77,11 +99,11 @@
                 </card>
             </row>
         </header>
-        <nav class="-dark-background-color-20 min-height-100pct position-fixed width-240px z-index-3">
+        <nav class="-dark-background-color-20 min-height-100pct position-fixed width-240px z-index-3" data-1313px-width="72px">
             <column>
                 <card class="border-bottom-1px-solid border-color-ffffff1a padding-top-50px">
                     <column>
-                        <box>
+                        <box data-href="/">
                             <row class="align-items-center">
                                 <ico>
                                     <n class="gg-home"></n>
@@ -89,15 +111,15 @@
                                 <text>Home</text>
                             </row>
                         </box>
-                        <box>
+                        <box data-href="/feed/explore/">
                             <row class="align-items-center">
                                 <ico>
                                     <n class="gg-trending"></n>
                                 </ico>
-                                <text>Trending</text>
+                                <text>Explore</text>
                             </row>
                         </box>
-                        <box>
+                        <box data-href="/feed/subscriptions/">
                             <row class="align-items-center">
                                 <ico>
                                     <n class="gg-play-button-r"></n>
@@ -112,7 +134,7 @@
                         <box>
                             <row class="align-items-center">
                                 <ico>
-                                    <n class="gg-play-button-r"></n>
+                                    <n class="gg-menu-grid-r"></n>
                                 </ico>
                                 <text>Library</text>
                             </row>

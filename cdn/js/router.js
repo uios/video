@@ -1,19 +1,48 @@
 String.prototype.router = async function(params) {
     var uri = this.toString();
-    var url = new URL(uri,location.origin);
-    var route = window.route = rout.e(url.pathname + url.search + url.hash);
+    
+    var url = new URL(uri,location.origin); console.log(url);
+    var tabs = await rout.ed.vars(rout.ed.dir(url.hash ? url.hash.split('#')[1] : uri));
+    var goto = rout.ed.url(tabs);
+    var route = window.route = rout.e(url.hash ? url.hash.split('#')[1] : goto +  url.search + url.hash); console.log(route);
+
+    var pages = dom.body.find('pages[data-pages="' + getRoot() + '"]');
+    var page = dom.body.find('page[data-page="' + route.page + '"]');
+    var vp = page ? page : pages; console.log(page);
+
+    if (vp) {
+        var goto = window.globals.domains.domain === "github" ? '/'+document.head.querySelector('[name="application-shortname"]').content : '';
+        vp.innerHTML === "" && vp.dataset.fetch ? vp.innerHTML = await ajax(vp.dataset.fetch) : null;
+    }
+
     var go = async function(resolve, reject) {
         //console.log('String.prototype.router', route);
         if (route) {
             var pop = params ? params.pop : null;
+
+            route = window.view ? await view(route).then(rout.ed.bang(route)) : await rout.ed.bang(route);
+            
             var path = route.path;
             window.GET = rout.ed.dir(path);
 
-            route = window.view ? await view(route).then(rout.ed.bang(route)) : await rout.ed.bang(route);
-
             if (!pop && !["blob:"].includes(window.location.protocol)) {
-                var goto = window.global.domains.subdomain === "uios" ? '/video' : '';
-                history.pushState(goto + route.path, '', goto + route.path);
+                const hash = globals.domains.domain === "github" ? "/#" : "";
+                var goto = window.globals.domains.domain === "github" ? '/'+document.head.querySelector('[name="application-shortname"]').content : '';
+                const link = hash.length > 0 ? goto + hash + (route.hash.length > 0 ? route.hash.split('#')[1] : route.path) + route.search : goto + route.path + route.search + route.hash;
+                if(window.self !== window.top) {
+                    const got = window.parent.GET.slice(0, 3);
+                    const gut = route.GOT;
+                    const bash = got.concat(gut);
+                    const goin = (window.globals.domains.domain === "github" ? '/#' : '')+rout.ed.url(bash);
+                    window.parent.history.pushState(goin, '', goin);
+                }
+                dom.body.dataset.path = route.path;
+                console.log({
+                    hash,
+                    route,
+                    link
+                }, route.hash.split('#')[1]);
+                history.pushState(link, '', link);
             }
 
             resolve(route);
@@ -36,8 +65,8 @@ window.rout.e = state=>{
     var path = rout.ed.url(arr2);
     const GOT = rout.ed.dir(path);
     const root = GOT[0];
-    const hash = state.split('#').length > 1 ? state.split('#')[1] : null;
-    const search = state.split('?').length > 1 ? state.split('?')[1].split('#')[0] : null;
+    const hash = state.split('#').length > 1 ? "#" + state.split('#')[1] : "";
+    const search = state.split('?').length > 1 ? "?" + state.split('?')[1].split('#')[0] : "";
 
     if (GOT.length > 0) {
         var n = 0;
@@ -63,14 +92,9 @@ window.rout.e = state=>{
 
 window.rout.ed = {};
 window.rout.ed.bang = async(route)=>{
-    var pages = dom.body.find('pages[data-pages="' + route.root + '"]');
+    var pages = dom.body.find('pages[data-pages="' + getRoot() + '"]');
     var page = dom.body.find('page[data-page="' + route.page + '"]');
     var vp = page ? page : pages;
-
-    if (vp) {
-        var goto = window.global.domains.subdomain === "uios" ? '/video' : '';
-        vp.innerHTML === "" && vp.dataset.fetch ? vp.innerHTML = await ajax(goto + vp.dataset.fetch) : null;
-    }
 
     $('[data-hide]').attr("data-active", true);
     $(':not(page)[data-pages]').removeAttr("data-active");
@@ -120,6 +144,66 @@ window.rout.ed.url = function(dir) {
         href = "/";
     }
     return href;
+}
+window.rout.ed.vars = async function(tabs) {
+    var d = 0
+      , e = 0;
+    do {
+        var dir = tabs[d];
+        if (dir && dir.length > 0) {
+            if (dir.charAt(0) === "*") {
+                dir = GOT[d];
+            }
+            if (dir.charAt(0) === ":") {
+                dir = dir.substring(1);
+                if (!isNaN(dir)) {
+                    var drc = rout.ed.dir(dom.body.dataset.path);
+                    console.log({
+                        dir,
+                        is: d >= parseInt(dir),
+                        drcd: drc[d]
+                    });
+                    if (drc[e - 1] && d >= parseInt(dir)) {
+                        //alert('dir'+dir);
+                        e === 0 && d > 0 ? e = d + 1 : e;
+                        dir = drc[e];
+                        //d = d  1;
+                        e++;
+                    } else {
+                        dir = null;
+                        tabs.splice(d, 1);
+                        d = tabs.length;
+                        //alert(1);
+                    }
+                }
+                if (dir === "get") {                    
+                    var drc = rout.ed.dir(dom.body.dataset.path);
+                    if (drc[d]) {
+                        dir = drc[d];
+                    } else {
+                        dir = null;
+                        tabs.splice(d, 1);
+                        d = tabs.length;
+                        //alert(1);
+                    }
+                }
+                if (dir === "uid") {
+                    dir = auth.user().uid;
+                }
+            }
+            if (dir) {
+                tabs[d] = dir.toString().split(":")[0];
+            } else {
+                tabs[d] = null;
+            }
+        }
+        d++;
+    } while (d < tabs.length);
+    tabs = tabs.filter(function(el) {
+        return el != null;
+    });
+    //console.log({tabs});
+    return tabs;
 }
 
 window.rout.ing = (href,GOT,n)=>{
