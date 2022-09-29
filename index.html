@@ -25,6 +25,7 @@
         </script>
         <link rel="icon" type="image/x-icon" href="favicon.ico">
         <link href="index.css" rel="stylesheet">
+        <link href="cdn/css/boiler.css" rel="stylesheet">
         <link href="cdn/css/gg.css" rel="stylesheet">
         <script id="script-index" src="index.js"></script>
         <script id="script-mvc" src="cdn/js/mvc.js"></script>
@@ -34,7 +35,7 @@
     </head>
     <body class="-dark-background-color-18" data-theme="system">
         <boot id="boot"></boot>
-        <header class="-dark-background-color-20 position-fixed width-100pct z-index-5">
+        <header class="-dark-background-color-20 align-items-center height-56px position-fixed width-100pct z-index-5">
             <row class="justify-content-space-between width-100pct">
                 <card>
                     <row>
@@ -55,11 +56,20 @@
                         </box>
                     </row>
                 </card>
-                <card class="align-items-center flex-1 margin-x-20px justify-content-center">
-                    <form class="-dark-background-color-12 border-1px-solid border-color-31 box-sizing-border-box display-flex flex-direction-row height-40px width-640px" data-792px-display="none">
+                <card class="align-items-center flex-direction-row flex-1 margin-x-20px justify-content-center">
+                    <section class="display-none">
+                        <box>
+                            <section>
+                                <ico>
+                                    <n class="gg-arrow-left"></n>
+                                </ico>
+                            </section>
+                        </box>
+                    </section>
+                    <form class="-dark-background-color-12 border-1px-solid border-color-31 border-radius-50px box-sizing-border-box display-flex flex-direction-row flex-grow-1 height-40px max-height-40px max-width-100pct width-640px" data-792px-display="none">
                         <box class="flex-1">
                             <section>
-                                <input class="" type="text">
+                                <input class="height-40px width-100pct" type="text">
                             </section>
                         </box>
                         <box class="-dark-background-color-31 width-64px">
@@ -109,7 +119,7 @@
         </header>
         <nav class="-dark-background-color-20 min-height-100pct position-fixed width-240px z-index-3" data-1313px-width="72px" data-792px-transform="translateX(-100%)">
             <column>
-                <card class="border-bottom-1px-solid border-color-ffffff1a padding-top-50px">
+                <card class="border-bottom-1px-solid border-color-ffffff1a padding-top-50px" data-1313px-border-bottom="unset">
                     <column>
                         <box data-href="/">
                             <row class="align-items-center">
@@ -137,9 +147,9 @@
                         </box>
                     </column>
                 </card>
-                <card class="border-bottom-1px-solid border-color-ffffff1a">
+                <card class="border-bottom-1px-solid border-color-ffffff1a" data-1313px-border-bottom="unset">
                     <column>
-                        <box>
+                        <box data-href="/feed/library/">
                             <row class="align-items-center">
                                 <ico class="margin-x-10px">
                                     <n class="gg-menu-grid-r"></n>
@@ -157,7 +167,7 @@
                         </box>
                     </column>
                 </card>
-                <card class="border-bottom-1px-solid border-color-ffffff1a">
+                <card class="border-bottom-1px-solid border-color-ffffff1a" data-1313px-border-bottom="unset">
                     <column>
                         <box data-1313px-display="none">
                             <row class="align-items-center">
@@ -222,6 +232,8 @@
         <main class="min-height-100pct">
             <page class="width-100pct" data-fetch="/cdn/html/page/page.index.html" data-page="/"></page>
             <page class="width-100pct" data-fetch="/cdn/html/page/page.feed.explore.html" data-page="/feed/explore/"></page>
+            <page class="width-100pct" data-fetch="/cdn/html/page/page.feed.subscriptions.html" data-page="/feed/subscriptions/"></page>
+            <page class="width-100pct" data-fetch="/cdn/html/page/page.watch.video.html" data-page="/watch/*/"></page>
         </main>
     </body>
 </html>
