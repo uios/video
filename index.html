@@ -27,6 +27,7 @@
         <link href="index.css" rel="stylesheet">
         <link href="cdn/css/gg.css" rel="stylesheet">
         <script src="index.js"></script>
+        <script src="cdn/js/mvc.js"></script>
         <script src="cdn/js/on.js"></script>
         <script src="cdn/js/router.js"></script>
         <script src="cdn/js/vanilla.js"></script>
@@ -39,14 +40,14 @@
                     <row>
                         <box>
                             <section>
-                                <ico>
+                                <ico class="margin-x-10px">
                                     <n class="gg-menu"></n>
                                 </ico>
                             </section>
                         </box>
                         <box>
                             <row class="align-items-center">
-                                <ico>
+                                <ico class="margin-right-3px" data-width="20px">
                                     <n class="gg-film"></n>
                                 </ico>
                                 <text>Video</text>
@@ -55,7 +56,7 @@
                     </row>
                 </card>
                 <card class="align-items-center flex-1 margin-x-20px justify-content-center">
-                    <form class="-dark-background-color-12 border-1px-solid border-color-31 box-sizing-border-box display-flex flex-direction-row height-40px width-640px">
+                    <form class="-dark-background-color-12 border-1px-solid border-color-31 box-sizing-border-box display-flex flex-direction-row height-40px width-640px" data-792px-display="none">
                         <box class="flex-1">
                             <section>
                                 <input class="" type="text">
@@ -73,14 +74,21 @@
                 </card>
                 <card class="margin-left-auto">
                     <row>
-                        <box>
+                        <box class="display-none" data-792px-display="flex">
+                            <section>
+                                <ico>
+                                    <n class="gg-search"></n>
+                                </ico>
+                            </section>
+                        </box>
+                        <box data-480px-display="none">
                             <section>
                                 <ico>
                                     <n class="gg-add"></n>
                                 </ico>
                             </section>
                         </box>
-                        <box>
+                        <box data-480px-display="none">
                             <section>
                                 <ico>
                                     <n class="gg-bell"></n>
@@ -99,32 +107,32 @@
                 </card>
             </row>
         </header>
-        <nav class="-dark-background-color-20 min-height-100pct position-fixed width-240px z-index-3" data-1313px-width="72px">
+        <nav class="-dark-background-color-20 min-height-100pct position-fixed width-240px z-index-3" data-1313px-width="72px" data-792px-transform="translateX(-100%)">
             <column>
                 <card class="border-bottom-1px-solid border-color-ffffff1a padding-top-50px">
                     <column>
                         <box data-href="/">
                             <row class="align-items-center">
-                                <ico>
+                                <ico class="margin-x-10px">
                                     <n class="gg-home"></n>
                                 </ico>
-                                <text>Home</text>
+                                <text data-1313px-display="none">Home</text>
                             </row>
                         </box>
                         <box data-href="/feed/explore/">
                             <row class="align-items-center">
-                                <ico>
+                                <ico class="margin-x-10px">
                                     <n class="gg-trending"></n>
                                 </ico>
-                                <text>Explore</text>
+                                <text data-1313px-display="none">Explore</text>
                             </row>
                         </box>
                         <box data-href="/feed/subscriptions/">
                             <row class="align-items-center">
-                                <ico>
+                                <ico class="margin-x-10px">
                                     <n class="gg-play-button-r"></n>
                                 </ico>
-                                <text>Subscriptions</text>
+                                <text data-1313px-display="none">Subscriptions</text>
                             </row>
                         </box>
                     </column>
@@ -133,86 +141,87 @@
                     <column>
                         <box>
                             <row class="align-items-center">
-                                <ico>
+                                <ico class="margin-x-10px">
                                     <n class="gg-menu-grid-r"></n>
                                 </ico>
-                                <text>Library</text>
+                                <text data-1313px-display="none">Library</text>
                             </row>
                         </box>
-                        <box>
+                        <box data-1313px-display="none">
                             <row class="align-items-center">
-                                <ico>
+                                <ico class="margin-x-10px">
                                     <n class="gg-time"></n>
                                 </ico>
-                                <text>History</text>
+                                <text data-1313px-display="none">History</text>
                             </row>
                         </box>
                     </column>
                 </card>
                 <card class="border-bottom-1px-solid border-color-ffffff1a">
                     <column>
-                        <box>
+                        <box data-1313px-display="none">
                             <row class="align-items-center">
-                                <ico>
+                                <ico class="margin-x-10px">
                                     <n class="gg-music"></n>
                                 </ico>
-                                <text>Music</text>
+                                <text data-1313px-display="none">Music</text>
                             </row>
                         </box>
-                        <box>
+                        <box data-1313px-display="none">
                             <row class="align-items-center">
-                                <ico>
+                                <ico class="margin-x-10px">
                                     <n></n>
                                 </ico>
-                                <text>Sports</text>
+                                <text data-1313px-display="none">Sports</text>
                             </row>
                         </box>
-                        <box>
+                        <box data-1313px-display="none">
                             <row class="align-items-center">
-                                <ico>
+                                <ico class="margin-x-10px">
                                     <n class="gg-games"></n>
                                 </ico>
-                                <text>Gaming</text>
+                                <text data-1313px-display="none">Gaming</text>
                             </row>
                         </box>
-                        <box>
+                        <box data-1313px-display="none">
                             <row class="align-items-center">
-                                <ico>
+                                <ico class="margin-x-10px">
                                     <n class="gg-film"></n>
                                 </ico>
-                                <text>Movies</text>
+                                <text data-1313px-display="none">Movies</text>
                             </row>
                         </box>
-                        <box>
+                        <box data-1313px-display="none">
                             <row class="align-items-center">
-                                <ico>
+                                <ico class="margin-x-10px">
                                     <n></n>
                                 </ico>
-                                <text>News</text>
+                                <text data-1313px-display="none">News</text>
                             </row>
                         </box>
-                        <box>
+                        <box data-1313px-display="none">
                             <row class="align-items-center">
-                                <ico>
+                                <ico class="margin-x-10px">
                                     <n></n>
                                 </ico>
-                                <text>Fashion</text>
+                                <text data-1313px-display="none">Fashion</text>
                             </row>
                         </box>
-                        <box>
+                        <box data-1313px-display="none">
                             <row class="align-items-center">
-                                <ico>
+                                <ico class="margin-x-10px">
                                     <n></n>
                                 </ico>
-                                <text>Learning</text>
+                                <text data-1313px-display="none">Learning</text>
                             </row>
                         </box>
                     </column>
                 </card>
             </column>
         </nav>
-        <main class="min-height-150pct">
-            <page class="width-100pct" data-active="true" data-fetch="/cdn/html/page/page.index.html" data-page="/"></page>
+        <main class="min-height-100pct">
+            <page class="width-100pct" data-fetch="/cdn/html/page/page.index.html" data-page="/"></page>
+            <page class="width-100pct" data-fetch="/cdn/html/page/page.feed.explore.html" data-page="/feed/explore/"></page>
         </main>
     </body>
 </html>
