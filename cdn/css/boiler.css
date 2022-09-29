@@ -70,6 +70,10 @@
     .border-radius-50pct {
         border-radius: 50%;
     }
+
+    .border-radius-50px {
+        border-radius: 50px;
+    }
 }
 
 /*COLOR*/
@@ -175,6 +179,12 @@
         }
     }
 
+    @media (max-width: 511px) {
+        [data-511px-display="none"] {
+            display: none;
+        }
+    }
+
     @media (max-width: 480px) {
         [data-480px-display="none"] {
             display: none;
@@ -202,6 +212,12 @@
     .flex-direction-column {
         flex-direction: column;
     }
+
+    @media (max-width: 1016px) {
+        [data-1016px-flex-direction="column"] {
+            flex-direction: column;
+        }
+    }
 }
 
 /*FLEX GROW*/
@@ -216,7 +232,7 @@
     .font-size-12px {
         font-size: 12px;
     }
-    
+
     .font-size-14px {
         font-size: 14px;
     }
@@ -341,6 +357,14 @@
         margin-top: 10px;
     }
 
+    .margin-top-20px {
+        margin-top: 20px;
+    }
+
+    .margin-top-56px {
+        margin-top: 56px;
+    }
+
     .margin-x-10px {
         margin-left: 10px;
         margin-right: 10px;
@@ -374,6 +398,13 @@
             margin-right: 0px;
         }
     }
+
+    @media (max-width: 480px) {
+        [data-480px-margin-x="10px"] {
+            margin-left: 10px;
+            margin-right: 10px;
+        }
+    }
 }
 
 /*MAX HEIGHT*/
@@ -393,8 +424,18 @@
         max-width: calc(100% - 20px);
     }
 
+    .max-width-100pct-minus-402px {
+        max-width: calc(100% - 402px);
+    }
+
     .max-width-640px {
         max-width: 640px;
+    }
+
+    @media (max-width: 1016px) {
+        [data-1016px-max-width="100%"] {
+            max-width: 100%;
+        }
     }
 }
 
@@ -407,12 +448,26 @@
 
 /*PADDING*/
 @media screen {
+    .padding-20px {
+        padding: 20px;
+    }
+
     .padding-left-240px {
         padding-left: 240px;
     }
 
     .padding-top-50px {
         padding-top: 50px;
+    }
+
+    .padding-top-56px {
+        padding-top: 56px;
+    }
+
+    @media (max-width: 792px) {
+        [data-792px-padding="0"] {
+            padding: 0;
+        }
     }
 }
 
@@ -469,8 +524,16 @@
         width: 240px;
     }
 
+    .width-402px {
+        width: 402px;
+    }
+
     .width-640px {
         width: 640px;
+    }
+
+    .width-1280px {
+        width: 1280px;
     }
 
     .width-1680px {

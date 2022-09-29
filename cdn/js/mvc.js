@@ -39,6 +39,24 @@ window.mvc.v ? null : (window.mvc.v = view = function(route) {
 
             if (root === "feed") {
                 resolve(route);
+            } else if (root === "watch") {
+                if(get[1]) {
+                    var vp = dom.body.find('[data-page="/watch/*/"]');
+                    var iframe = vp.find('iframe');
+                    const uid = get[1];
+                    var endpoint = "/watch/" + uid + ".json";
+                    const a = (d) => {
+                        const data = JSON.parse(d);
+                        console.log(data);
+                        iframe.src = "https://youtube.com/embed/" + data.source;
+                    }
+                    const b = (error) => {
+                        endpoint = api.endpoint + "/video/watch/" + uid;
+                        alert("There was an error loading this video.");
+                    }
+                    ajax(endpoint).then(a).catch(b);
+                }
+                resolve(route);
             } else {
                 resolve(route);
             }
