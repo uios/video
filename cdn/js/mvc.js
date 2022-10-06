@@ -40,17 +40,17 @@ window.mvc.v ? null : (window.mvc.v = view = function(route) {
             if (root === "feed") {
                 resolve(route);
             } else if (root === "watch") {
-                if(get[1]) {
+                if (get[1]) {
                     var vp = dom.body.find('[data-page="/watch/*/"]');
                     var iframe = vp.find('iframe');
                     const uid = get[1];
                     var endpoint = "/watch/" + uid + ".json";
-                    const a = (d) => {
+                    const a = (d)=>{
                         const data = JSON.parse(d);
                         console.log(data);
                         iframe.src = "https://youtube.com/embed/" + data.source;
                     }
-                    const b = (error) => {
+                    const b = (error)=>{
                         endpoint = api.endpoint + "/video/watch/" + uid;
                         alert("There was an error loading this video.");
                     }
@@ -62,7 +62,43 @@ window.mvc.v ? null : (window.mvc.v = view = function(route) {
             }
 
         } else {
+
+            var vp = dom.body.find('[data-page="/"]');
+            var iframe = vp.find('iframe');
+            var endpoint = "/search/recent.json";
+            const a = async(d)=>{
+                const data = JSON.parse(d);
+                const videos = data.videos;
+                if (videos.length > 0) {
+                    const feed = byId('feed-index');
+                    feed.innerHTML = "";
+                    const template = await ajax('/cdn/html/template/template.video.grid.html');
+                    var v = 0;
+                    do {
+                        const html = new DOMParser().parseFromString(template, 'text/html').body.firstElementChild.cloneNode(true);
+                        const video = videos[v];
+                        const kind = video.kind;
+                        if (kind === "youtube#video") {
+                            const source = video.source;
+                            const uid = video.uid;
+                            const picture = html.find('picture');
+                            picture.dataset.href = "/watch/" + uid + "/";
+                            picture.find('img').src = "https://i.ytimg.com/vi/" + source + "/hqdefault.jpg";
+                            html.find('[data-before="Title"]').textContent = video.title;
+                            html.find('[data-before="Channel Name"]').textContent = video.title;
+                        }
+                        feed.insertAdjacentHTML('beforeend', html.outerHTML)
+                        v++;
+                    } while (v < videos.length);
+                }
+            }
+            const b = (error)=>{
+                endpoint = api.endpoint + "/video/watch/" + uid;
+                alert("There was an error loading this video.");
+            }
+            ajax(endpoint).then(a).catch(b);
             resolve(route);
+
         }
     }
     );
