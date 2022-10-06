@@ -1,0 +1,7 @@
+/*COLOR*/
+@media (prefers-color-scheme: dark) {
+    body[data-theme="system"].-dark-color-fff,
+    body[data-theme="system"].-dark-color-fff input {  
+        color: #fff;
+    }
+}
