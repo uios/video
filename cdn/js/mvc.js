@@ -85,7 +85,7 @@ window.mvc.v ? null : (window.mvc.v = view = function(route) {
                             picture.dataset.href = "/watch/" + uid + "/";
                             picture.find('img').src = "https://i.ytimg.com/vi/" + source + "/hqdefault.jpg";
                             html.find('[data-before="Title"]').textContent = video.title;
-                            html.find('[data-before="Channel Name"]').textContent = video.title;
+                            html.find('[data-before="Channel Name"]').textContent = video.channelName;
                         }
                         feed.insertAdjacentHTML('beforeend', html.outerHTML)
                         v++;
