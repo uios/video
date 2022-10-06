@@ -67,6 +67,14 @@
 
 /*BORDER RADIUS*/
 @media screen {
+    .border-bottom-right-radius-40px {
+        border-bottom-right-radius: 40px;
+    }
+    
+    .border-top-right-radius-40px {
+        border-top-right-radius: 40px;
+    }
+    
     .border-radius-50pct {
         border-radius: 50%;
     }
@@ -204,6 +212,7 @@
 @media screen {
     .flex-grow-1 {
         flex-grow: 1;
+        /* flex: 1; */
     }
 }
 
