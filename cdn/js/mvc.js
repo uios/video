@@ -47,7 +47,6 @@ window.mvc.v ? null : (window.mvc.v = view = function(route) {
                     var endpoint = "/watch/" + uid + ".json";
                     const a = (d)=>{
                         const data = JSON.parse(d);
-                        console.log(data);
                         iframe.src = "https://youtube.com/embed/" + data.source;
                     }
                     const b = (error)=>{
@@ -86,6 +85,7 @@ window.mvc.v ? null : (window.mvc.v = view = function(route) {
                             picture.find('img').src = "https://i.ytimg.com/vi/" + source + "/hqdefault.jpg";
                             html.find('[data-before="Title"]').textContent = video.title;
                             html.find('[data-before="Channel Name"]').textContent = video.channelName;
+                            html.find('[data-before="Channel Name"]').dataset.href = "/channel/" + video.channelId;
                         }
                         feed.insertAdjacentHTML('beforeend', html.outerHTML)
                         v++;

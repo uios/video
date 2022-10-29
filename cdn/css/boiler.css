@@ -10,6 +10,10 @@
     .background-color-000 {
         background-color: #000;
     }
+    
+    .background-color-777 {
+        background-color: #777;
+    }
 
     @media (prefers-color-scheme: dark) {
         body[data-theme="system"] .-dark-background-color-12 {
@@ -88,6 +92,10 @@
 @media screen {
     .color-aaa {
         color: #aaa;
+    }
+    
+    .color-777 {
+        color: #777;
     }
 }
 
@@ -221,9 +229,17 @@
     .font-size-12px {
         font-size: 12px;
     }
+    
+    .font-size-13px {
+        font-size: 13px;
+    }
 
     .font-size-14px {
         font-size: 14px;
+    }
+
+    .font-size-18px {
+        font-size: 18px;
     }
 }
 
@@ -275,6 +291,18 @@
         height: 56px;
     }
 
+    .height-80px {
+        height: 80px;
+    }
+
+    .height-135px {
+        height: 135px;
+    }
+
+    .height-200px {
+        height: 200px;
+    }
+
     .height-100pct, [data-height="100%"] {
         height: 100%;
     }
@@ -295,6 +323,14 @@
 @media screen {
     .line-height-20px {
         line-height: 20px;
+    }
+    
+    .line-height-36px {
+        line-height: 36px;
+    }
+    
+    .line-height-50px {
+        line-height: 50px;
     }
 }
 
@@ -326,8 +362,20 @@
         margin: 20px;
     }
 
+    .margin-bottom-10px {
+        margin-bottom: 10px;
+    }
+
     .margin-bottom-20px {
         margin-bottom: 20px;
+    }
+
+    .margin-left-10px {
+        margin-left: 10px;
+    }
+
+    .margin-left-20px {
+        margin-left: 20px;
     }
 
     .margin-left-240px {
@@ -340,6 +388,14 @@
 
     .margin-right-10px {
         margin-right: 10px;
+    }
+
+    .margin-right-24px {
+        margin-right: 24px;
+    }
+
+    .margin-right-auto {
+        margin-right: auto;
     }
 
     .margin-top-10px {
@@ -458,6 +514,11 @@
         padding-right: 20px;
     }
 
+    .padding-y-20px {
+        padding-bottom: 20px;
+        padding-top: 20px;
+    }
+
     @media (max-width: 792px) {
         [data-792px-padding="0"] {
             padding: 0;
@@ -478,6 +539,10 @@
     .position-relative {
         position: relative;
     }
+}
+
+.text-transform-uppercase {
+    text-transform: uppercase;
 }
 
 /*TRANSFORM*/
@@ -512,6 +577,10 @@
 
     .width-64px {
         width: 64px;
+    }
+
+    .width-80px {
+        width: 80px;
     }
 
     .width-240px {

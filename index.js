@@ -28,7 +28,7 @@ function init() {
     console.log("Initializing...");
 
     window.rout.ing = function(href, GOT, n, m=GOT[n], root=GOT[0]) {
-        return m.includes("#") || (root === 'watch' && n === 1);
+        return m.includes("#") || (root === 'watch' && n === 1) || (root === 'channel' && n === 1);
     }
 
     dom.body.dataset.load = "ed";
