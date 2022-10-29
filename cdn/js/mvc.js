@@ -39,6 +39,29 @@ window.mvc.v ? null : (window.mvc.v = view = function(route) {
 
             if (root === "feed") {
                 resolve(route);
+            } else if (root === "channel") {
+                var vp = dom.body.find("[data-page='/channel/*/']");
+                var endpoint = "/channel/"+get[1]+".json";
+                const a = async(d)=>{
+                    const data = JSON.parse(d);
+                    const videos = data.videos;
+                    if (videos.length > 0) {
+                        var v = 0; 
+                        var uploads = vp.all('block')[3].firstElementChild;
+                        do {
+                            var video = videos[v];
+                            var card = uploads.children[v];
+                            card.dataset.href = "/watch/"+video.uid+"/"
+                            card.find('picture').innerHTML = "<img class='height-100pct position-absolute top-0 width-100pct' src='https://img.youtube.com/vi/"+video.source+"/maxresdefault.jpg'>";
+                            v++;
+                        } while (v < videos.length);
+                    }
+                }
+                const b = (error)=>{
+                    console.log(error);
+                    alert("There was an error loading this video.");
+                }
+                ajax("/channel/"+get[1]+".json").then(a).catch(b);
             } else if (root === "watch") {
                 if (get[1]) {
                     var vp = dom.body.find('[data-page="/watch/*/"]');
