@@ -62,6 +62,7 @@ window.mvc.v ? null : (window.mvc.v = view = function(route) {
                     alert("There was an error loading this video.");
                 }
                 ajax("/channel/"+get[1]+".json").then(a).catch(b);
+                resolve(route);
             } else if (root === "watch") {
                 if (get[1]) {
                     var vp = dom.body.find('[data-page="/watch/*/"]');
